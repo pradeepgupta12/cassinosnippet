@@ -41,6 +41,20 @@ export const casinoBlogs = {
       tags: ["online casino", "guide", "gaming", "safety"],
       is_featured: true,
       read_time_minutes: 4
-    }
+    },
+    {
+      id: "blog_004",
+      title: "Top 5 Strategies to Win Big at Online Slots",
+      slug: "top-5-strategies-online-slots",
+      excerpt: "Discover expert tips to boost your chances of winning at online slots with our proven strategies.",
+      content: "Online slots are a thrilling way to test your luck, but with the right strategies, you can maximize your wins. In this blog, we cover five key tips: 1) Choose high RTP slots, 2) Manage your bankroll effectively, 3) Take advantage of bonuses, 4) Understand paylines and volatility, and 5) Practice with free spins. Whether you're a beginner or a seasoned player, these strategies can elevate your game at Royal Casino.",
+      category: "Gaming Tips",
+      author: "Casino Expert",
+      published_date: "2025-08-01T12:00:00Z",
+      image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh2117-EVDxeY-MH5dQu2Z0kbSlwA4Y9qG5Q&s",
+      tags: ["slots", "gaming tips", "casino", "strategy"],
+      is_featured: true,
+      read_time_minutes: 6
+    },
   ]
 };
