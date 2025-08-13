@@ -1,32 +1,5 @@
-// import React from "react";
-
-// const Home = () => {
-//   return (
-//     <section className=" text-white h-80 bg-gray-600 flex items-center justify-center px-4">
-//       <div className="text-center max-w-3xl">
-//         <h1 className="text-3xl md:text-5xl font-bold text-yellow-400 mb-4">
-//           Welcome to CasinoSniper – Your Ultimate Guide to{" "}
-//           <span className="block md:inline text-yellow-400">Winning Big!</span>
-//         </h1>
-//         <p className="text-lg md:text-xl italic text-black mb-8">
-//           Find the best online casinos, bonuses, and games to start your
-//           winning journey.
-//         </p>
-//         <button className="bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition">
-//           START PLAYING
-//         </button>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Home;
-
-
-
-
 // import React, { useEffect, useState, useRef } from "react";
-// import { FaStar, FaArrowLeft, FaArrowRight, FaShieldAlt, FaGift, FaBook, FaLock, FaWallet, FaMobileAlt, FaHeadset, FaStar as FaStarIcon, FaVideo, FaCheckCircle, FaTimes } from "react-icons/fa";
+// import { FaStar, FaArrowRight, FaShieldAlt, FaGift, FaBook, FaLock, FaWallet, FaMobileAlt, FaHeadset, FaStar as FaStarIcon, FaVideo, FaCheckCircle, FaTimes } from "react-icons/fa";
 // import { casinoData } from "../Data/casinoData";
 // import { gamesData } from "../Data/gamesData";
 // import { guidesData } from "../Data/guidesData";
@@ -59,7 +32,7 @@
 //   const [visibleNewsCards, setVisibleNewsCards] = useState(4);
 //   const [visibleGuideCards, setVisibleGuideCards] = useState(2);
 //   const [visibleHowToPlayCards, setVisibleHowToPlayCards] = useState(2);
-//   const [visibleBlogCards, setVisibleBlogCards] = useState(3); // Initial visible blogs
+//   const [visibleBlogCards, setVisibleBlogCards] = useState(3);
 
 //   useEffect(() => {
 //     const currentPhrase = phrases[phraseIndex];
@@ -96,46 +69,6 @@
 //     window.addEventListener("scroll", handleScroll);
 //     return () => window.removeEventListener("scroll", handleScroll);
 //   }, [isPopupOpen, isPopupClosed]);
-
-//   const scroll = (direction) => {
-//     const { current } = scrollRef;
-//     const scrollAmount = 320;
-//     if (direction === "left") {
-//       current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-//     } else {
-//       current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-//     }
-//   };
-
-//   const reviewScroll = (direction) => {
-//     const { current } = reviewScrollRef;
-//     const scrollAmount = 320;
-//     if (direction === "left") {
-//       current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-//     } else {
-//       current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-//     }
-//   };
-
-//   const bonusScroll = (direction) => {
-//     const { current } = bonusScrollRef;
-//     const scrollAmount = 320;
-//     if (direction === "left") {
-//       current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-//     } else {
-//       current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-//     }
-//   };
-
-//   const gamesScroll = (direction) => {
-//     const { current } = gamesScrollRef;
-//     const scrollAmount = 320;
-//     if (direction === "left") {
-//       current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-//     } else {
-//       current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-//     }
-//   };
 
 //   const handleViewMoreNews = () => {
 //     setVisibleNewsCards([...(casinoNewsAndStories.news || []), ...(casinoNewsAndStories.stories || [])].length);
@@ -215,18 +148,6 @@
 //         <h2 className="text-3xl md:text-4xl font-bold text-[#333333] text-center mb-10">
 //           Top-Rated Casinos
 //         </h2>
-//         <button
-//           onClick={() => scroll("left")}
-//           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#1A1A3D] text-white p-2 rounded-full z-10 hover:bg-[#2E2E5A]"
-//         >
-//           <FaArrowLeft />
-//         </button>
-//         <button
-//           onClick={() => scroll("right")}
-//           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#1A1A3D] text-white p-2 rounded-full z-10 hover:bg-[#2E2E5A]"
-//         >
-//           <FaArrowRight />
-//         </button>
 //         <div
 //           ref={scrollRef}
 //           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-4 pt-4 relative z-0"
@@ -278,18 +199,6 @@
 //         <h2 className="text-3xl md:text-4xl font-bold text-[#333333] text-center mb-10">
 //           Honest Casino Reviews
 //         </h2>
-//         <button
-//           onClick={() => reviewScroll("left")}
-//           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#1A1A3D] text-white p-2 rounded-full z-10 hover:bg-[#2E2E5A]"
-//         >
-//           <FaArrowLeft />
-//         </button>
-//         <button
-//           onClick={() => reviewScroll("right")}
-//           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#1A1A3D] text-white p-2 rounded-full z-10 hover:bg-[#2E2E5A]"
-//         >
-//           <FaArrowRight />
-//         </button>
 //         <div
 //           ref={reviewScrollRef}
 //           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-4 pt-4 relative z-0"
@@ -517,9 +426,9 @@
 //                   href={`/${item.category.toLowerCase().replace(/ /g, '-')}/${item.slug}`}
 //                   target="_blank"
 //                   rel="noopener noreferrer"
-//                   className="text-[#E63946] hover:text-[#D62828] font-semibold"
+//                   className="text-[#E63946] hover:text-[#D62828] font-semibold flex items-center gap-2"
 //                 >
-//                   Readmore
+//                   Readmore <FaArrowRight className="text-[#E63946] hover:text-[#D62828]" />
 //                 </a>
 //               </div>
 //             </div>
@@ -543,7 +452,6 @@
 //         <h2 className="text-3xl md:text-4xl font-bold text-[#333333] text-center mb-6">
 //           Casino Blogs
 //         </h2>
-//         {/* <div className="w-full h-1 bg-[#1A1A3D] mb-6"></div> */}
 //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 //           {casinoBlogs.blogs.slice(0, visibleBlogCards).map((blog) => (
 //             <div
@@ -562,9 +470,9 @@
 //                   href={`/${blog.category.toLowerCase().replace(/ /g, '-')}/${blog.slug}`}
 //                   target="_blank"
 //                   rel="noopener noreferrer"
-//                   className="text-[#E63946] hover:text-[#D62828] font-semibold"
+//                   className="text-[#E63946] hover:text-[#D62828] font-semibold flex items-center gap-2"
 //                 >
-//                   Readmore
+//                   Readmore <FaArrowRight className="text-[#E63946] hover:text-[#D62828]" />
 //                 </a>
 //               </div>
 //             </div>
@@ -615,7 +523,7 @@
 //         </div>
 //       </section>
 
-//       {/* Subscribe Section (Original) - Unchanged */}
+//       {/* Subscribe Section */}
 //       <section className="py-12 px-4 md:px-8 max-w-7xl mx-auto bg-white text-[#333333] overflow-visible">
 //         <h2 className="text-3xl md:text-4xl font-bold text-[#333333] text-center mb-6">
 //           Subscribe to Our Newsletter
@@ -637,7 +545,7 @@
 
 //       {/* Random Popup */}
 //       {isPopupOpen && (
-//         <div className="fixed inset-0 bg-black/80  flex items-center justify-center z-50">
+//         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
 //           <div className="bg-white p-6 rounded-lg shadow-lg text-center w-full max-w-md relative">
 //             <button
 //               onClick={() => { setIsPopupOpen(false); setIsPopupClosed(true); window.scrollTo(0, 0); }}
@@ -666,6 +574,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { FaStar, FaArrowRight, FaShieldAlt, FaGift, FaBook, FaLock, FaWallet, FaMobileAlt, FaHeadset, FaStar as FaStarIcon, FaVideo, FaCheckCircle, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Added for navigation
 import { casinoData } from "../Data/casinoData";
 import { gamesData } from "../Data/gamesData";
 import { guidesData } from "../Data/guidesData";
@@ -870,8 +779,9 @@ const Home = () => {
           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-4 pt-4 relative z-0"
         >
           {casinoData.casinos.map((casino) => (
-            <div
+            <Link
               key={casino.id}
+              to={`/casino-reviews/${casino.id}`}
               className="min-w-[300px] bg-white border border-transparent hover:border-[#FFD700] rounded-lg overflow-hidden shadow-md transition-transform duration-300 flex flex-col transform hover:-translate-y-2 hover:shadow-xl relative z-0 hover:z-10"
             >
               <img src={casino.image} alt={`${casino.name} logo`} className="h-40 w-full object-cover" />
@@ -897,16 +807,13 @@ const Home = () => {
                 <p className="text-gray-700 text-sm mb-4">
                   {casino.description}
                 </p>
-                <a
-                  href={casino.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#FFD700] hover:bg-[#FFC107] text-[#333333] font-semibold text-center py-2 rounded transition mt-auto"
+                <div
+                  className="bg-[#FFD700] hover:bg-[#FFC107] text-[#333333] font-semibold text-center py-2 rounded transition mt-auto cursor-pointer"
                 >
                   Read Full Review
-                </a>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
