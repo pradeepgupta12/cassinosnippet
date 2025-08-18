@@ -13,29 +13,48 @@
 //   const [casinoHoverTimeout, setCasinoHoverTimeout] = useState(null);
 
 //   const toggleMenu = () => setMenuOpen(!menuOpen);
-//   const toggleSearch = () => setShowSearch(!showSearch);
+//   const toggleSearch = () => {
+//     setShowSearch(!showSearch);
+//     setMenuOpen(!showSearch); // Open menu when search is activated, close when deactivated
+//   };
 //   const toggleBonuses = () => setBonusesOpen((prev) => !prev);
 //   const toggleCasinoReviews = () => setCasinoReviewsOpen((prev) => !prev);
 
 //   const navItems = [
 //     { label: "Home", href: "/" },
 //     { label: "Casino Reviews", href: "#" },
-//     { label: "Guides", href: "#" },
+//     { label: "Guides", href: "/all-guides" },
 //     { label: "Bonuses", href: "#" },
 //     { label: "Games", href: "#" },
-//     { label: "Blog", href: "#" },
-//     { label: "News", href: "#" },
+//     { label: "Blog", href: "/all-blogs" },
+//     { label: "News", href: "/all-news-stories" },
 //     { label: "Contact Us", href: "/contact" },
 //   ];
 
 //   return (
 //     <nav className="relative bg-[#1A1A3D] text-[#D3D3D3] px-4 py-4 shadow-md">
 //       <div className="max-w-7xl mx-auto flex items-center justify-between">
-//         {/* Logo */}
-//         <Link to="/" className="flex items-center space-x-2 text-[#FFD700] font-bold text-xl">
-//           <span className="text-2xl">©</span>
-//           <span>CasinoSniper</span>
-//         </Link>
+//         {/* Mobile Hamburger & Logo */}
+//         <div className="flex items-center space-x-4">
+//           <div className="lg:hidden">
+//             <button onClick={toggleMenu}>
+//               {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+//             </button>
+//           </div>
+//           <Link to="/" className="flex items-center space-x-2 text-[#FFD700] font-bold text-xl">
+//             <span className="text-2xl">©</span>
+//             <span>CasinoSniper</span>
+//           </Link>
+//         </div>
+
+//         {/* Mobile Search Icon */}
+//         <div className="lg:hidden">
+//           {!showSearch && (
+//             <button onClick={toggleSearch} className="transition-all duration-300 ease-in-out">
+//               <FaSearch className="text-[#FFD700]" size={20} />
+//             </button>
+//           )}
+//         </div>
 
 //         {/* Desktop Navigation */}
 //         <div className="hidden lg:flex items-center space-x-6">
@@ -54,12 +73,13 @@
 //                     setCasinoHoverTimeout(timeout);
 //                   }}
 //                 >
-//                   <span
+//                   <Link
 //                     className="cursor-pointer hover:text-[#FFD700] transition text-[#D3D3D3]"
 //                     onClick={toggleCasinoReviews}
+//                     to="/all-casino-reviews"
 //                   >
 //                     Casino Reviews
-//                   </span>
+//                   </Link>
 
 //                   {casinoReviewsOpen && (
 //                     <div
@@ -77,7 +97,6 @@
 //                         <li><Link to="/all-casino-reviews" className="hover:underline">All casino reviews</Link></li>
 //                         <li><Link to="/1xBET" className="hover:underline">1xBET</Link></li>
 //                         <li><Link to="/casino-days" className="hover:underline">Casino Days</Link></li>
-//                         <li><Link to="/stake" className="hover:underline">Stake</Link></li>
 //                         <li><Link to="/22bet" className="hover:underline">22Bet</Link></li>
 //                       </ul>
 //                     </div>
@@ -100,12 +119,13 @@
 //                     setHoverTimeout(timeout);
 //                   }}
 //                 >
-//                   <span
+//                   <Link
 //                     className="cursor-pointer hover:text-[#FFD700] transition text-[#D3D3D3]"
 //                     onClick={toggleBonuses}
+//                     to="/casino-bonuses"
 //                   >
 //                     Bonuses
-//                   </span>
+//                   </Link>
 
 //                   {bonusesOpen && (
 //                     <div
@@ -160,36 +180,26 @@
 //             <FaSearch className="absolute right-3 top-2 text-[#FFD700]" />
 //           </div>
 //         </div>
-
-//         {/* Mobile Menu & Search Icons */}
-//         <div className="lg:hidden flex items-center space-x-4">
-//           <button onClick={toggleSearch}>
-//             <FaSearch className="text-[#FFD700]" size={20} />
-//           </button>
-//           <button onClick={toggleMenu}>
-//             {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-//           </button>
-//         </div>
 //       </div>
-
-//       {/* Mobile Search Bar */}
-//       {showSearch && (
-//         <div className="lg:hidden px-4 mt-3">
-//           <div className="relative">
-//             <input
-//               type="text"
-//               placeholder="Search casinos, games..."
-//               className="w-full rounded-full pl-4 pr-10 py-2 text-sm text-[#D3D3D3] bg-[#2E2E5A] bg-opacity-20 border border-[#FFD700] focus:outline-none"
-//             />
-//             <FaSearch className="absolute right-3 top-3 text-[#FFD700]" />
-//           </div>
-//         </div>
-//       )}
 
 //       {/* Mobile Dropdown Menu */}
 //       {menuOpen && (
 //         <div className="absolute left-0 w-full bg-white text-[#333333] z-50 shadow-md lg:hidden">
 //           <div className="flex flex-col px-4 py-4 space-y-2">
+//             {showSearch && (
+//               <div className="relative mb-2">
+//                 <input
+//                   type="text"
+//                   placeholder="Search casinos, games..."
+//                   className="w-full rounded-full pl-4 pr-10 py-2 text-sm text-[#333333] bg-[#F5F5F5] border border-[#FFD700] focus:outline-none"
+//                 />
+//                 <FaTimes
+//                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#FFD700] cursor-pointer"
+//                   size={20}
+//                   onClick={toggleSearch}
+//                 />
+//               </div>
+//             )}
 //             {navItems.map((item) => {
 //               if (item.label === "Casino Reviews") {
 //                 return (
@@ -228,15 +238,6 @@
 //                               onClick={() => setMenuOpen(false)}
 //                             >
 //                               Casino Days
-//                             </Link>
-//                           </li>
-//                           <li>
-//                             <Link
-//                               to="/stake"
-//                               className="hover:text-[#E63946]"
-//                               onClick={() => setMenuOpen(false)}
-//                             >
-//                               Stake
 //                             </Link>
 //                           </li>
 //                           <li>
@@ -347,33 +348,55 @@ const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [bonusesOpen, setBonusesOpen] = useState(false);
   const [casinoReviewsOpen, setCasinoReviewsOpen] = useState(false);
+  const [gamesOpen, setGamesOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState(null);
   const [casinoHoverTimeout, setCasinoHoverTimeout] = useState(null);
+  const [gamesHoverTimeout, setGamesHoverTimeout] = useState(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const toggleSearch = () => setShowSearch(!showSearch);
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+    setMenuOpen(!showSearch); // Open menu when search is activated, close when deactivated
+  };
   const toggleBonuses = () => setBonusesOpen((prev) => !prev);
   const toggleCasinoReviews = () => setCasinoReviewsOpen((prev) => !prev);
+  const toggleGames = () => setGamesOpen((prev) => !prev);
 
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Casino Reviews", href: "#" },
-    { label: "Guides", href: "#" },
+    { label: "Guides", href: "/all-guides" },
     { label: "Bonuses", href: "#" },
     { label: "Games", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "News", href: "#" },
+    { label: "Blog", href: "/all-blogs" },
+    { label: "News", href: "/all-news-stories" },
     { label: "Contact Us", href: "/contact" },
   ];
 
   return (
     <nav className="relative bg-[#1A1A3D] text-[#D3D3D3] px-4 py-4 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 text-[#FFD700] font-bold text-xl">
-          <span className="text-2xl">©</span>
-          <span>CasinoSniper</span>
-        </Link>
+        {/* Mobile Hamburger & Logo */}
+        <div className="flex items-center space-x-4">
+          <div className="lg:hidden">
+            <button onClick={toggleMenu}>
+              {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+            </button>
+          </div>
+          <Link to="/" className="flex items-center space-x-2 text-[#FFD700] font-bold text-xl">
+            <span className="text-2xl">©</span>
+            <span>CasinoSniper</span>
+          </Link>
+        </div>
+
+        {/* Mobile Search Icon */}
+        <div className="lg:hidden">
+          {!showSearch && (
+            <button onClick={toggleSearch} className="transition-all duration-300 ease-in-out">
+              <FaSearch className="text-[#FFD700]" size={20} />
+            </button>
+          )}
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-6">
@@ -470,6 +493,53 @@ const Navbar = () => {
               );
             }
 
+            if (item.label === "Games") {
+              return (
+                <div
+                  key="Games"
+                  className="relative"
+                  onMouseEnter={() => {
+                    clearTimeout(gamesHoverTimeout);
+                    setGamesOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    const timeout = setTimeout(() => setGamesOpen(false), 200);
+                    setGamesHoverTimeout(timeout);
+                  }}
+                >
+                  <Link
+                    className="cursor-pointer hover:text-[#FFD700] transition text-[#D3D3D3]"
+                    onClick={toggleGames}
+                    to="/games"
+                  >
+                    Games
+                  </Link>
+
+                  {gamesOpen && (
+                    <div
+                      className="absolute top-full mt-2 w-56 bg-white text-black rounded-lg shadow-lg z-50"
+                      onMouseEnter={() => {
+                        clearTimeout(gamesHoverTimeout);
+                        setGamesOpen(true);
+                      }}
+                      onMouseLeave={() => {
+                        const timeout = setTimeout(() => setGamesOpen(false), 200);
+                        setGamesHoverTimeout(timeout);
+                      }}
+                    >
+                      <ul className="py-2 px-4 space-y-2">
+                        <li><Link to="/baccarat" className="hover:underline">Baccarat</Link></li>
+                        <li><Link to="/blackjack" className="hover:underline">Blackjack</Link></li>
+                        <li><Link to="/poker" className="hover:underline">Poker</Link></li>
+                        <li><Link to="/dice" className="hover:underline">Dice</Link></li>
+                        <li><Link to="/all-games" className="hover:underline">All Games</Link></li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             return item.href.startsWith("/") ? (
               <Link
                 key={item.label}
@@ -499,36 +569,26 @@ const Navbar = () => {
             <FaSearch className="absolute right-3 top-2 text-[#FFD700]" />
           </div>
         </div>
-
-        {/* Mobile Menu & Search Icons */}
-        <div className="lg:hidden flex items-center space-x-4">
-          <button onClick={toggleSearch}>
-            <FaSearch className="text-[#FFD700]" size={20} />
-          </button>
-          <button onClick={toggleMenu}>
-            {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-          </button>
-        </div>
       </div>
-
-      {/* Mobile Search Bar */}
-      {showSearch && (
-        <div className="lg:hidden px-4 mt-3">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search casinos, games..."
-              className="w-full rounded-full pl-4 pr-10 py-2 text-sm text-[#D3D3D3] bg-[#2E2E5A] bg-opacity-20 border border-[#FFD700] focus:outline-none"
-            />
-            <FaSearch className="absolute right-3 top-3 text-[#FFD700]" />
-          </div>
-        </div>
-      )}
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="absolute left-0 w-full bg-white text-[#333333] z-50 shadow-md lg:hidden">
           <div className="flex flex-col px-4 py-4 space-y-2">
+            {showSearch && (
+              <div className="relative mb-2">
+                <input
+                  type="text"
+                  placeholder="Search casinos, games..."
+                  className="w-full rounded-full pl-4 pr-10 py-2 text-sm text-[#333333] bg-[#F5F5F5] border border-[#FFD700] focus:outline-none"
+                />
+                <FaTimes
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#FFD700] cursor-pointer"
+                  size={20}
+                  onClick={toggleSearch}
+                />
+              </div>
+            )}
             {navItems.map((item) => {
               if (item.label === "Casino Reviews") {
                 return (
@@ -536,7 +596,6 @@ const Navbar = () => {
                     <span
                       className="py-2 border-b border-[#1A1A3D] hover:text-[#E63946] block cursor-pointer"
                       onClick={toggleCasinoReviews}
-                      
                     >
                       {item.label}
                     </span>
@@ -632,6 +691,70 @@ const Navbar = () => {
                               onClick={() => setMenuOpen(false)}
                             >
                               Free bets
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (item.label === "Games") {
+                return (
+                  <div key="Games" className="relative">
+                    <span
+                      className="py-2 border-b border-[#1A1A3D] hover:text-[#E63946] block cursor-pointer"
+                      onClick={toggleGames}
+                    >
+                      {item.label}
+                    </span>
+                    {gamesOpen && (
+                      <div className="pl-4 py-2 bg-white rounded-lg">
+                        <ul className="space-y-2">
+                          <li>
+                            <Link
+                              to="/baccarat"
+                              className="hover:text-[#E63946]"
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              Baccarat
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/blackjack"
+                              className="hover:text-[#E63946]"
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              Blackjack
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/poker"
+                              className="hover:text-[#E63946]"
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              Poker
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/dice"
+                              className="hover:text-[#E63946]"
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              Dice
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/all-games"
+                              className="hover:text-[#E63946]"
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              All Games
                             </Link>
                           </li>
                         </ul>

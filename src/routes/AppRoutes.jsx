@@ -13,6 +13,17 @@ import AllCasinoReviews from "../pages/AllCasinoReviews";
 import CasinoDays from "../pages/CasinoDays";
 import Bet22 from "../pages/Bet22";
 import OneXBET from "../pages/OneXBET";
+import AllNewsStories from "../pages/AllNewsStories";
+import NewsDetails from "../pages/NewsDetails";
+import AllBlogs from "../pages/AllBlogs";
+import BlogDetails from "../pages/BlogDetails";
+import GuideDetails from "../pages/GuideDetails";
+import AllGuides from "../pages/AllGuides";
+import BaccaratGame from "../pages/BaccaratGame";
+import BlackjackGame from "../pages/BlackjackGame";
+import PokerGame from "../pages/PokerGame";
+import DiceGame from "../pages/DiceGame";
+import AllGames from "../pages/AllGames";
 
 // Scroll handler
 const ScrollToTop = () => {
@@ -26,7 +37,7 @@ const ScrollToTop = () => {
 const AppRoutes = () => {
   return (
     <Router>
-      <ScrollToTop /> {/* Added to ensure scroll-to-top on route change */}
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,9 +48,21 @@ const AppRoutes = () => {
         <Route path="/free-spins" element={<FreeSpinsBonusesPage />} />
         <Route path="/free-bets" element={<CasinoFreeBetsPage />} />
         <Route path="/all-casino-reviews" element={<AllCasinoReviews />} />
-        <Route path="/casino-days" element={<CasinoDays/>} />
-        <Route path="/22bet" element={<Bet22/>} />
-        <Route path="/1xBET" element={<OneXBET/>} />
+        <Route path="/casino-days" element={<CasinoDays />} />
+        <Route path="/22bet" element={<Bet22 />} />
+        <Route path="/1xBET" element={<OneXBET />} />
+        <Route path="/all-news-stories" element={<AllNewsStories />} />
+        <Route path="/news/:category/:slug" element={<NewsDetails />} />
+        <Route path="/story/:category/:slug" element={<NewsDetails />} />
+        <Route path="/all-blogs" element={<AllBlogs />} />
+        <Route path="/blog/:category/:slug" element={<BlogDetails />} />
+        <Route path="/guides/:guideId" element={<GuideDetails />} />
+  <Route path="/all-guides" element={<AllGuides />} />
+  <Route path="/baccarat" element={<BaccaratGame/>} />
+  <Route path="/blackjack" element={<BlackjackGame/>} />
+  <Route path="/poker" element={<PokerGame/>} />
+  <Route path="/dice" element={<DiceGame/>} />
+  <Route path="all-games" element={<AllGames/>} />
       </Routes>
       <Footer />
     </Router>
