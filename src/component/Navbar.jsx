@@ -29,7 +29,7 @@ const Navbar = () => {
     { label: "Casino Reviews", href: "#" },
     { label: "Guides", href: "/all-guides" },
     { label: "Bonuses", href: "#" },
-    { label: "Games", href: "all-games" },
+    { label: "Games", href: "/all-games" },
     { label: "Blog", href: "/all-blogs" },
     { label: "News", href: "/all-news-stories" },
     { label: "Contact Us", href: "/contact" },
@@ -172,7 +172,7 @@ const Navbar = () => {
                   <Link
                     className="cursor-pointer hover:text-[#FFD700] transition text-[#D3D3D3]"
                     onClick={toggleGames}
-                    to="/games"
+                    to="/all-games"
                   >
                     Games
                   </Link>
