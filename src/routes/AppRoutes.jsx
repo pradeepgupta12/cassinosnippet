@@ -24,6 +24,10 @@ import BlackjackGame from "../pages/BlackjackGame";
 import PokerGame from "../pages/PokerGame";
 import DiceGame from "../pages/DiceGame";
 import AllGames from "../pages/AllGames";
+import AboutUs from "../pages/AboutUs";
+import TermsConditions from "../pages/TermsConditions";
+
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 // Scroll handler
 const ScrollToTop = () => {
@@ -62,7 +66,11 @@ const AppRoutes = () => {
   <Route path="/blackjack" element={<BlackjackGame/>} />
   <Route path="/poker" element={<PokerGame/>} />
   <Route path="/dice" element={<DiceGame/>} />
-  <Route path="all-games" element={<AllGames/>} />
+  <Route path="/all-games" element={<AllGames/>} />
+  <Route path="/about-us" element={<AboutUs/>} />
+  <Route path="/terms-conditions" element={<TermsConditions/>} />
+
+  <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
       </Routes>
       <Footer />
     </Router>
