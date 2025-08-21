@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { FaInfoCircle, FaEnvelope, FaPhone, FaBullseye, FaAward, FaHeart, FaUsers } from 'react-icons/fa';
 import { FooterInformation } from '../Data/FooterInformation';
@@ -9,15 +11,15 @@ const AboutUs = () => {
  const sectionIcons = [FaBullseye, FaAward, FaHeart, FaUsers];
 
  return (
-   <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+   <div className="min-h-screen bg-white">
      {/* Header */}
      <div className="bg-white shadow-lg">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
          <div className="text-center">
-           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6 shadow-xl">
-             <FaInfoCircle className="text-3xl text-white" />
+           <div className="inline-flex items-center justify-center w-20 h-20 bg-[#FFD700] rounded-full mb-6 shadow-xl">
+             <FaInfoCircle className="text-3xl text-[#333333]" />
            </div>
-           <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+           <h1 className="text-4xl sm:text-5xl font-bold text-[#333333] mb-6">
              {aboutUs.title}
            </h1>
            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -41,11 +43,12 @@ const AboutUs = () => {
                    <button
                      key={index}
                      onClick={() => setActiveSection(index)}
-                     className={`w-full flex items-center p-3 rounded-xl transition-all duration-300 ${
+                     className={`w-full flex items-center p-3 rounded-xl transition text-left ${
                        activeSection === index
-                         ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
+                         ? 'bg-[#FFD700] text-[#333333] shadow-lg'
+                         : 'text-gray-600 hover:bg-[#FFC107] hover:text-[#333333]'
                      }`}
+                     aria-current={activeSection === index ? 'true' : 'false'}
                    >
                      <Icon className="mr-3 text-sm" />
                      <span className="text-sm font-medium">{section.heading}</span>
@@ -59,21 +62,16 @@ const AboutUs = () => {
          {/* Content */}
          <div className="lg:col-span-3">
            <div className="space-y-6">
-             {aboutUs.sections.map((section, index) => {
-               const Icon = sectionIcons[index] || FaInfoCircle;
+             {(() => {
+               const section = aboutUs.sections[activeSection];
+               const Icon = sectionIcons[activeSection] || FaInfoCircle;
                return (
                  <div
-                   key={index}
-                   className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 ${
-                     activeSection === index ? 'ring-2 ring-blue-500 shadow-2xl' : ''
-                   }`}
+                   key={activeSection}
+                   className="bg-white rounded-2xl p-8  hover:shadow-xl transition ring-2 ring-[#FFD700] shadow-2xl"
                  >
                    <div className="flex items-start space-x-4">
-                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                       activeSection === index 
-                         ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' 
-                         : 'bg-gray-100 text-gray-600'
-                     }`}>
+                     <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[#FFD700] text-[#333333]">
                        <Icon />
                      </div>
                      <div className="flex-1">
@@ -83,30 +81,30 @@ const AboutUs = () => {
                    </div>
                  </div>
                );
-             })}
+             })()}
            </div>
 
            {/* Contact Section */}
-           <div className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-2xl">
-             <h2 className="text-2xl font-bold mb-6 flex items-center">
+           <div className="mt-12 bg-[#FFD700] rounded-2xl p-8 text-[#333333] shadow-2xl">
+             <h2 className="text-2xl font-bold mb-6 flex items-center text-[#333333]">
                <FaPhone className="mr-3" />
                Contact Us
              </h2>
              <div className="grid md:grid-cols-2 gap-6">
-               <div className="flex items-center space-x-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                 <FaEnvelope className="text-xl" />
+               <div className="flex items-center space-x-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm hover:bg-[#FFC107] transition">
+                 <FaEnvelope className="text-xl text-[#333333]" />
                  <div>
-                   <p className="text-sm opacity-90">Email</p>
-                   <a href={`mailto:${aboutUs.contact.email}`} className="font-medium hover:underline">
+                   <p className="text-sm text-[#333333] opacity-90">Email</p>
+                   <a href={`mailto:${aboutUs.contact.email}`} className="font-medium text-[#333333] hover:underline">
                      {aboutUs.contact.email}
                    </a>
                  </div>
                </div>
-               <div className="flex items-center space-x-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                 <FaPhone className="text-xl" />
+               <div className="flex items-center space-x-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm hover:bg-[#FFC107] transition">
+                 <FaPhone className="text-xl text-[#333333]" />
                  <div>
-                   <p className="text-sm opacity-90">Phone</p>
-                   <p className="font-medium">{aboutUs.contact.phone}</p>
+                   <p className="text-sm text-[#333333] opacity-90">Phone</p>
+                   <p className="font-medium text-[#333333]">{aboutUs.contact.phone}</p>
                  </div>
                </div>
              </div>

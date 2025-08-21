@@ -1,6 +1,5 @@
 
 
-
 import {
   FaFacebookF,
   FaTwitter,
@@ -12,10 +11,10 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-[#1A1A3D] text-[#D3D3D3] py-10">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h2 className="text-[#FFD700] text-2xl font-bold flex items-center gap-2">
-            <span className="text-3xl">🎯</span> CasinoSniper
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="col-span-2 md:col-span-1 md:pr-4">
+          <h2 className="text-[#FFD700] text-2xl font-bold flex items-center gap-1">
+            <span className="text-2xl">🎯</span> CasinoSniper
           </h2>
           <p className="mt-4 text-[#D3D3D3] text-sm">
             CasinoSniper is the trusted source for casino reviews, bonuses,
@@ -52,7 +51,7 @@ export default function Footer() {
               <Link to="/casino-bonuses" className="hover:text-[#FFD700] cursor-pointer">Best Bonuses</Link>
             </li>
             <li>
-              <Link to="/all-games" className="hover:text-[#FFD700] cursor-pointer">Game Guides</Link>
+              <Link to="/all-guides" className="hover:text-[#FFD700] cursor-pointer">Game Guides</Link>
             </li>
             <li>
               <Link to="/all-news-stories" className="hover:text-[#FFD700] cursor-pointer">News</Link>
@@ -73,31 +72,24 @@ export default function Footer() {
             <li>
               <Link to="/terms-conditions" className="hover:text-[#FFD700] cursor-pointer">Terms & Conditions</Link>
             </li>
-           
             <li>
               <Link to="/contact" className="hover:text-[#FFD700] cursor-pointer">Contact Us</Link>
             </li>
           </ul>
         </div>
-        <div>
+        <div className="col-span-2 md:col-span-1">
           <h3 className="text-[#FFD700] text-lg font-semibold mb-3">
             Responsible Gaming
           </h3>
           <ul className="space-y-2 text-sm text-[#D3D3D3]">
             <li>
-              <Link to="/play-responsibly" className="hover:text-[#FFD700] cursor-pointer">Play Responsibly</Link>
+              <Link to="/" className="hover:text-[#FFD700] cursor-pointer">Top Rated Casino</Link>
             </li>
             <li>
-              <Link to="/self-exclusion" className="hover:text-[#FFD700] cursor-pointer">Self-Exclusion</Link>
+              <Link to="/all-games" className="hover:text-[#FFD700] cursor-pointer">Casino Games</Link>
             </li>
             <li>
-              <Link to="/gambling-addiction" className="hover:text-[#FFD700] cursor-pointer">Gambling Addiction</Link>
-            </li>
-            <li>
-              <Link to="/underage-policy" className="hover:text-[#FFD700] cursor-pointer">Underage Policy</Link>
-            </li>
-            <li>
-              <Link to="/help-support" className="hover:text-[#FFD700] cursor-pointer">Help & Support</Link>
+              <Link to="/all-blogs" className="hover:text-[#FFD700] cursor-pointer">Blogs</Link>
             </li>
           </ul>
         </div>
@@ -109,5 +101,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-
